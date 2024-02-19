@@ -2,7 +2,7 @@ kind: ConfigMap
 apiVersion: v1 
 metadata:
   name: myconfigmapv2.0
-  namespace: {{ .Values.microservices.microB.namespace }}
+  namespace: {{ .Values.microservices.microb.namespace }}
 data:
   BG_COLOR: '#12181b'
   FONT_COLOR: '#FFFFFF'

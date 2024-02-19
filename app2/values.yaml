@@ -1,8 +1,8 @@
 appName: myhelmapp
 microservices:
-  microA:
+  microa:
     enabled: true
-    namespace: app1
+    namespace: default
     replicaCount: 1
     image:
       name: devopsjourney1/mywebapp
@@ -12,7 +12,7 @@ microservices:
       type: ClusterIP
     configMapName: myconfigmapv1.0
 
-  microB:
+  microb:
     enabled: true
     namespace: default
     replicaCount: 1

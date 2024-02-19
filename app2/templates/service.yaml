@@ -1,8 +1,9 @@
 {{- range $serviceName, $service := .Values.microservices }}
+{{- if $service.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ $.Values.appName }}-service
+  name: {{ $serviceName }}-service
   namespace: {{ $service.namespace }}
   labels:
     app: {{ $.Values.appName }}
@@ -14,6 +15,8 @@ spec:
   selector:
     app: {{ $.Values.appName }}
     tier: frontend
-    
-  type: ClusterIP
+    microservice: {{ $serviceName }}
+  type: {{ $service.service.type }}
 {{- end }}
+{{- end }}
+

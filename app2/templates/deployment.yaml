@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ $.Values.appName }}
+  name: {{ $.Values.appName }}-{{ $serviceName }} # Unique name for each microservice
   namespace: {{ $service.namespace }}
   labels:
     app: {{ $.Values.appName }}
@@ -36,3 +36,4 @@ spec:
             memory: "128Mi"
             cpu: "100m"
 {{- end }}
+
