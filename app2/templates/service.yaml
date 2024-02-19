@@ -1,0 +1,19 @@
+{{- range $serviceName, $service := .Values.microservices }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $.Values.appName }}-service
+  namespace: {{ $service.namespace }}
+  labels:
+    app: {{ $.Values.appName }}
+spec:
+  ports:
+  - port: {{ $service.service.port }}
+    protocol: TCP
+    name: flask
+  selector:
+    app: {{ $.Values.appName }}
+    tier: frontend
+    
+  type: ClusterIP
+{{- end }}
